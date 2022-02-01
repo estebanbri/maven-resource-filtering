@@ -27,6 +27,8 @@ public class MaveResourceFilteringApplication implements CommandLineRunner {
 	@Value("${mi.property.via.settings:not_found}")
 	private String miPropertyViaSettings;
 
+	@Value("${mi-variable-entorno-path}")
+	private String miVariableDeEntornoPath;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -35,5 +37,6 @@ public class MaveResourceFilteringApplication implements CommandLineRunner {
 		System.out.println(miPropertyCustom);
 		System.out.println(miPropertyViaArgs);
 		System.out.println(miPropertyViaSettings);
+		System.out.println(miVariableDeEntornoPath);
 	}
 }

@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<via.custom.pom.properties>Hola</via.custom.pom.properties>
+		<variable.entorno>${env.PATH}</variable.entorno>
 	</properties>
 	<dependencies>
 		<dependency>
