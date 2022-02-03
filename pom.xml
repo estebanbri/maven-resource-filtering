@@ -35,9 +35,24 @@
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>spring-boot-maven-plugin</artifactId> <!--Te permite compilar y ejecutar (te ahorra de hacer clean install y despues ejecutar tu jar con "java -jar")-->
+				<configuration>
+					<!-- JVM System Properties-->
+					<systemPropertyVariables><!--Tambien se puede pasarlas directamente al ejecutar "mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dguru.config.path=c:/config""-->
+						<guru.config.path>c:/config</guru.config.path>
+					</systemPropertyVariables>
+					<!-- Environment Variables-->
+					<environmentVariables>
+						<GURU_LOGIN>true</GURU_LOGIN>
+					</environmentVariables>
+					<!-- Environment Variables-->
+					<jvmArguments> <!--mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"-->
+<!--						-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005-->
+					</jvmArguments>
+				</configuration>
 			</plugin>
 			<!--
+			maven-resources-plugin: permite resolver placeholders como ${} en el pom y properties file
 			If you don’t use the starter parent, in your pom.xml you need this:
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
